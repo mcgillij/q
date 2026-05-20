@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "q"
+version = "0.1.0"
+description = "Quick CLI assistant — ask a local LLM for Linux/programming help"
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1.0",
+    "rich>=13.0.0",
+    "httpx>=0.24.0",
+    "tomli>=2.0.0 ; python_version < '3.11'",
+    "tomli-w>=1.0.0",
+]
+
+[project.scripts]
+q = "q.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/q"]
